@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Rate My School</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+
+	<link rel="stylesheet" href="/css/profile.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="icomoon.css">
+	<!-- Themify Icons-->
+	<link rel="stylesheet" href="themify-icons.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="magnific-popup.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="bootstrap-datepicker.min.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="owl.carousel.min.css">
+	<link rel="stylesheet" href="owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+
+	<div class="gtco-loader"></div>
+
+
+	<!-- <div class="page-inner"> -->
+	<nav class="gtco-nav" role="navigation">
+		<div class="gtco-container">
+
+			<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<div id="gtco-logo"><a href="/">Rate My School <em>.</em></a></div>
+				</div>
+				<div class="col-xs-8 text-right menu-1">
+					<ul>
+						<li><a href="./">Sign Out</a></li>
+						<li><a href="/">Home</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</nav>
+
+	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url(images/img_3.jpg)">
+		<div class="overlay"></div>
+		<div class="gtco-container">
+			<div class="row">
+				<div id="background" class="col-md-12 col-md-offset-0 text-center">
+					<div class="margin">
+						<div id="uiPic" class="col-md-12 mt-text animate-box" data-animate-effect="fadeInUp">
+							<section class="profilePic">
+								<section class="form">
+									<section class="picUpload">
+										<img id="myImg" src= "<%= user.photo %>" height="250" width="250">
+									</section>
+									<form action="/up" enctype="multipart/form-data" method="post">
+									 <input id="pic" type="file" name="file-to-upload" class="btn btn-primary btn-block">
+									 <input id="upload" type="submit" class="btn btn-primary btn-block" value="Upload">
+									</form>
+									<ul class="messages">
+										<% if(userInfo[0]) {%>
+										<li class="message">
+											<span><strong>Name: </strong><%= userInfo[0].name %></span>
+											<br>
+											<span><strong>School: </strong><%= userInfo[0].school %></span>
+											<span class="hide"><%= userInfo[0]._id %></span>
+										</li>
+										<% } %>
+									</ul>
+									<form class="information" action="/profile" method="POST">
+										<input type="text" name="name" value="" placeholder="Your Name">
+										<input type="text" name="school" value="" placeholder="Your School">
+										<input type="submit" class="btn btn-primary btn-block" value="Submit">
+									</form>
+
+								</section>
+
+
+									<section class="schoolLookUp">
+										<form id="leonRocks" class="searchForm">
+										<label for="autocomplete">Search for School</label>
+										<input type="text" id="fullname" placeholder="School Name" name="schoolSearch" class="form-control" list="schools">
+										<datalist id="schools"></datalist>
+
+											<script>
+			(function(schools) {
+			  function addItems (list, container) {
+			      list.forEach(function(item){
+			      const option = document.createElement('option');
+			      option.setAttribute('value', item);
+			      container.appendChild(option);
+			    });
+			  }
+			  const schoolList = ["Guild Elementary","Kennedy Patrick Elem","Otis Elementary","O'Donnell Elementary","East Boston High","Umana Academy","East Boston EEC","McKay K-8","Adams Elementary","Harvard/Kent Elem","Charlestown High","Edwards Middle","Warren/Prescott K-8","Eliot K-8","Quincy Upper School","Quincy Lower (K-5)","Snowden International","McKinley Elementary","McKinley So. End Acad","Hurley K-8","Blackstone Elementary","Mason Elementary","Clap Elementary","Perkins Elementary","Excel High","Tynan Elementary","Perry K-8","Russell Elementary","Orchard Gardens K-8","West Roxbury Academy","UP Academy Boston","Boston Day and Evening Academy","Carter Center","Madison Park High","O'Bryant Math & Sci.","Timilty Middle","Hale Elementary","Higginson/Lewis (3-8)","Haynes EEC","Trotter K-8","Boston Latin Academy","Ellis Elementary","Winthrop Elementary","King K-8","Frederick Pilot Middle","UP Academy Holland","Mather Elementary","UP Academy Charter School of Dorchester","Henderson Lower (K0-1)","Murphy K-8","Kenny Elementary","Henderson Upper (2-12)","Taylor Elementary","Boston International HS","Newcomers Academy","Mildred Avenue K-8","TechBoston Academy","Lee K-8","Lee Academy (K1-3)","Holmes Elementary","Young Achievers K-8","Mattahunt Elementary","Chittick Elementary","Comm Acad Sci Health","Philbrick Elementary","Haley K-8","BTU K-8 Pilot","Roosevelt Upper (2-8)","Channing Elementary","Grew Elementary","Conley Elementary","Irving Middle","Sumner Elementary","Community Academy","Hernandez K-8","English High","Mendell Elementary","Kennedy John F Elemen","West Zone ELC","Tobin K-8","Boston Latin School","Kennedy Health Careers Academy (11-12)","Fenway High","Boston Arts Academy","McKinley Prep High Sch","McKinley Middle","Curley K-8 (Lower)","Curley K-8 (Upper)","Manning Elementary","Bates Elementary","Mozart Elementary","Kilmer Upper (4-8)","Beethoven Elementary","Kilmer Lower (K1-3)","Urban Science Academy","Lyndon K-8","Edison K-8","Lyon K-8","Lyon, Mary 9-12","Winship Elementary","Another Course to College","Brighton High","Baldwin ELPA","Horace Mann","Jackson/Mann K-8","New Mission High","Gardner K-8","Ohrenberger 3-8","Everett Elementary","P.A. Shaw (K1-3)","Greenwood Sarah K-8","Burke High","Dever Elementary","McCormack Middle","Condon K-8","Roosevelt K-8 (K1-1)","Bradley Elementary","Hennigan K-8","Ellison/ Parks ELC","Greater Egleston High","Mission Hill K-8","Margarita Muniz Academy","Dudley Street Neighborhood Charter School","Kennedy Health Careers Academy (9-10)","Community Leadership Academy","Eliot K-8","Higginson Elementary (K1-2)","Alighieri Montessori","Boston Adult Tech Acad","Boston Green Academy","Dearborn Academy"]
+			  addItems(schoolList, schools);
+			}(document.getElementById('schools')));
+			</script>
+											<div class="row form-group">
+												<div class="col-md-12">
+												</div>
+											</div>
+											<div class="row form-group">
+												<div class="col-md-12">
+													<button class="btn btn-primary btn-block">Submit</button>
+												</div>
+											</div>
+										</form>
+									</section>
+							</section>
+						</div>
+
+					</div>
+
+							<div class="tab-content">
+								<div class="tab-content-inner active" data-content="signup">
+
+
+								</div>
+							</div>
+
+				</div>
+			</div>
+	</header>
+
+
+	<!-- </div> -->
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="jquery.waypoints.min.js"></script>
+	<!-- Carousel -->
+	<script src="owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="jquery.countTo.js"></script>
+
+	<!-- Stellar Parallax -->
+	<script src="jquery.stellar.min.js"></script>
+
+	<!-- Magnific Popup -->
+	<script src="jquery.magnific-popup.min.js"></script>
+	<script src="magnific-popup-options.js"></script>
+
+	<!-- Datepicker -->
+	<script src="bootstrap-datepicker.min.js"></script>
+
+
+	<!-- Main -->
+	<script src="main.js"></script>
+
+	</body>
+</html>

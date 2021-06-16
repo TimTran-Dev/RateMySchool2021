@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+.col-md-4 {
+  width: 41% !important;
+}
+.form-control{
+  margin-bottom: 5% !important;
+
+}
+.form-group{
+  display: inline-flex !important;
+}
